@@ -1,0 +1,19 @@
+<?php
+session_start();
+echo "reached store";
+echo $_SESSION["id"];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $utitle = $_POST["title"];
+   $ucontent = $_POST["content"];
+   
+   if (isset($_SESSION["id"])) {
+      echo $_SESSION["id"];
+      require 'includes/Post.php';
+      $obj = new Post();
+      $obj->createpost($utitle, $ucontent);
+   }
+   else{
+      echo "session id of user not set";
+   }
+}
