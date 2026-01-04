@@ -30,8 +30,14 @@ class Verify extends Db
                         echo $_SESSION["id"];
                         header("Location: Index.php");
                     }
+                    else{
+                        echo"wrong email or password";
+                        break;
+                    }
+
                 }
             }
+
         } catch (PDOException $e) {
             echo "error" . $e->getMessage();
         }

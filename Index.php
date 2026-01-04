@@ -5,7 +5,6 @@ require_once 'includes/Db.php';
 
 class Index extends Db
 {
-
     public function show()
     {
         try {
@@ -30,7 +29,11 @@ class Index extends Db
                     echo $rows["created_at"]
                         . "<br>";
                     echo "<a href='authcheck.php?pid=" . $rows['id'] . "&title=" . urlencode($rows['title']) . "&content=" . urlencode($rows['content']) . "'>
-                      <button>edit</button>
+                    <button>edit</button>
+                        </a>";
+                    echo "<a href='logout.php'><button>logout</button></a>";
+                    echo "<a href='delete.php?pid=" . $rows['id'] ."'>
+                    <button>delete</button>
                         </a>";
                 }
         } catch (PDOException $e) {
