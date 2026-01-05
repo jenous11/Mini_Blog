@@ -1,6 +1,6 @@
 <?php
 // session_start();
-
+require_once 'auth_guard.php';
 require_once 'includes/Db.php';
 
 class Index extends Db

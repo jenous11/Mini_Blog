@@ -15,8 +15,10 @@ $content = $_GET['content'];
 </head>
 <body>
   <form action="authpass.php" method="post">
+    title:
     <input type="text" name="title" value="<?php echo $title?>">
     <br>
+    content:
     <input type="text" name="content" value="<?php echo $content?>">
     <br>
     <button type="submit">post</button>

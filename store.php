@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'auth_guard.php';
 echo "reached store";
 echo $_SESSION["id"];
 

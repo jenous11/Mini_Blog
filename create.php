@@ -1,3 +1,6 @@
+<?php
+require_once 'auth_guard.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
