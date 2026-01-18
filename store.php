@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'auth_guard.php';
-echo "reached store";
+// echo "reached store";
 echo $_SESSION["id"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo $_SESSION["id"];
       require 'includes/Post.php';
       $obj = new Post();
-      $obj->createpost($utitle, $ucontent);
+      $obj->createpost($utitle, $ucontent,$_SESSION["id"]);
    }
    else{
       echo "session id of user not set";

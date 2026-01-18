@@ -4,14 +4,15 @@ require_once 'auth_guard.php';
 class Post extends DB
 {
 
-    public function createpost($title, $content)
+    public function createpost($title, $content,$user_id)
     {
         try {
             $pdo = $this->connect();
-            $sql = "INSERT INTO posts(title, content) VALUES (:title,:content);";
+            $sql = "INSERT INTO posts(title, content,user_id) VALUES (:title,:content,:user_id);";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':title', $title);
             $stmt->bindValue(':content', $content);
+            $stmt->bindValue(':user_id', $user_id);
             $stmt->execute();
             $stmt = null;
             $pdo = null;

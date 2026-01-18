@@ -1,5 +1,7 @@
 <?php
-session_start();
+require_once 'auth_guard.php';
+
+// session_start();
 unset($_SESSION["id"]);
 session_destroy();
 

@@ -1,6 +1,6 @@
 <?php
-// session_start();
-require_once 'auth_guard.php';
+session_start();
+// require_once 'auth_guard.php';
 require_once 'includes/Db.php';
 
 class Index extends Db
@@ -35,6 +35,7 @@ class Index extends Db
                     echo "<a href='delete.php?pid=" . $rows['id'] ."'>
                     <button>delete</button>
                         </a>";
+                    echo "<hr>";
                 }
         } catch (PDOException $e) {
             echo "error: " . $e->getMessage();
@@ -44,8 +45,8 @@ class Index extends Db
 
 require_once 'auth.php';
 if (isset($_SESSION["id"])) {
-    // echo "we are at index";
-    // echo $_SESSION["id"];
+    echo "we are at index";
+    echo $_SESSION["id"];
     $show = new Index();
     $show->show();
 }

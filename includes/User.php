@@ -1,5 +1,7 @@
 <?php
 
+require_once 'includes/Db.php';
+
 class User extends Db
 {
 
