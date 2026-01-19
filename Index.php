@@ -15,13 +15,15 @@ class Index extends Db
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt = null;
             $pdo = null;
-
+            
             if (empty($result))
                 header("Location: create.php");
             else
                 foreach ($result as $rows) {
-                    echo $rows["id"]
-                        . "<br>";
+                    
+                    // echo $rows["id"]
+                        // . "<br>";
+                    // $_SESSION["name"];
                     echo $rows["title"]
                         . "<br>";
                     echo $rows["content"]

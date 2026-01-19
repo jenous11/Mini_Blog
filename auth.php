@@ -10,45 +10,28 @@ class Verify extends Db
 {
     public function auth($uemail,$upassword)
     {
-        
-        try {
-            $pdo = $this->connect();
-            // $sql = ("SELECT *FROM users");
-            $sql = ("SELECT *FROM users where email=:email AND password=:password");
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue("email",$uemail);
-            $stmt->bindValue("password",$upassword);
+        try{
+            $pdo=$this->connect();
+            $sql="SELECT *FROM users WHERE email=:email;";
+            $stmt=$pdo->prepare($sql);
+            $stmt->bindParam('email',$uemail);
             $stmt->execute();
-            
-            
-            // $results = $stmt->fetchALL();
-            $results = $stmt->fetch();
-            //eta empty database matra check garyo aru user pani huna sakxa josle register garya xaina
-            //logic milau
-            if(empty($results)) {
-            header("Location: register.php");
-            }
-            foreach ($results as $result) {
+            $user=$stmt->fetch();
 
-                $id = $result["id"];
-                $email = $result["email"];
-                $password = $result["password"];
-
-                if ($uemail == $email) {
-                    echo "email correct!";
-                    if (password_verify($upassword, $password)) {
-                        echo "password verified";
-                        $_SESSION["id"] = $id;
-                        echo $_SESSION["id"];
-                        header("Location: Index.php");
-                    } else {
-                        echo "wrong email or password";
-                        break;
-                    }
-                }
+            if(!$user){
+                header("Location: register.php");
+                exit;
             }
-        } catch (PDOException $e) {
-            echo "error" . $e->getMessage();
+            if(password_verify($upassword,$user["password"])){
+                $_SESSION["id"]=$user;
+                header("location: index.php");
+                exit;
+            }
+                
+            }
+        catch(PDOException $e){
+            echo "error".$e->getMessage();
+
         }
     }
 }
@@ -56,6 +39,8 @@ class Verify extends Db
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $uemail = $_POST["email"];
     $upassword = $_POST["password"];
+    $uname = $_POST["name"];
+    $_SESSION["name"]=$uname;
 
     $verify = new Verify();
     $credentials = $verify->auth($uemail,$upassword);
