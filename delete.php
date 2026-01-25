@@ -8,4 +8,4 @@ if(isset($_SESSION["id"]))
     $delete=new Post();
     $delete->deletepost($id);
     echo "The Post was Deleted!";
-    header("Location: logout.php");
+    // header("Location: index.php");

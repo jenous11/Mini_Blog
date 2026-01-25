@@ -1,9 +1,6 @@
 <?php
-//getting data when edit button gets pressed
-// $pid = $_GET['id'];
 $title = $_GET['title'];
 $content = $_GET['content'];
-
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +11,7 @@ $content = $_GET['content'];
     <title>Document</title>
 </head>
 <body>
-  <form action="authpass.php" method="post">
+  <form action="applyedit.php" method="post">
     title:
     <input type="text" name="title" value="<?php echo $title?>">
     <br>

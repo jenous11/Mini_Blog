@@ -3,6 +3,6 @@ require_once 'auth_guard.php';
 
 // session_start();
 unset($_SESSION["id"]);
+unset($_SESSION["name"]);
 session_destroy();
-
-// header("Location: login.php");
+header("Location: login.php");
