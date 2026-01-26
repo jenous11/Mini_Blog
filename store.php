@@ -1,11 +1,11 @@
 <?php
 session_start();
-// require_once 'auth_guard.php';
+require_once 'auth_guard.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $utitle = $_POST["title"];
   $ucontent = $_POST["content"];
 
-  if (isset($_SESSION["id"])) {
+  // if (isset($_SESSION["id"])) {
     require 'includes/Post.php';
     $obj = new Post();
     $user_id = $_SESSION["id"];
@@ -15,4 +15,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "session id of user not set";
   }
-}
+// }

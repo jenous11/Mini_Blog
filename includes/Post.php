@@ -1,17 +1,17 @@
 <?php
 require_once "Db.php";
-require_once 'auth_guard.php';
+// require_once 'auth_guard.php';
 class Post extends DB
 {
-    public function createpost($title, $content,$user_id)
+    public function createpost($title, $content)
     {
         try {
             $pdo = $this->connect();
-            $sql = "INSERT INTO posts(title, content,user_id) VALUES (:title,:content,:user_id);";
+            $sql = "INSERT INTO posts(title, content) VALUES (:title,:content);";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':title', $title);
             $stmt->bindValue(':content', $content);
-            $stmt->bindValue(':user_id', $user_id);
+            // $stmt->bindValue(':user_id', $user_id);
             $stmt->execute();
             $stmt = null;
             $pdo = null;
@@ -40,16 +40,10 @@ class Post extends DB
     {
         try {
             $pdo = $this->connect();
-            $sql = "DELETE from posts where user_id=:user_id";
+            $sql = "DELETE FROM  posts WHERE id=:id;";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue('user_id',$id);
+            $stmt->bindValue(":id",$id);
             $stmt->execute();
-
-            // $sql2="DELETE from users where id=id";
-            // $stmt2 = $pdo->prepare($sql2);
-            // $stmt->bindValue('id',$id);
-            // $stmt2->execute();
-
             $stmt = null;
             // $stmt2= null;
             $pdo = null;

@@ -1,4 +1,6 @@
 <?php
+require_once 'auth_guard.php';
+
 $title = $_GET['title'];
 $content = $_GET['content'];
 ?>
@@ -19,7 +21,7 @@ $content = $_GET['content'];
     <input type="text" name="content" value="<?php echo $content?>">
     <br>
     <button type="submit">post</button>
-  </form>  
+  </form>
 </body>
 </html>
 

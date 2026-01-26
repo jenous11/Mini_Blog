@@ -7,12 +7,11 @@
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
         <!-- bootstrap -->
-          <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center mt-5">
         <form action="auth.php" method="post">
-            <div class="mb-3">
+         <div class="mb-3">
                 <label class="form-label" >Name</label>
                 <input type="text"  class="form-control" name="name" >
             </div>
@@ -30,7 +29,5 @@
         </form>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>

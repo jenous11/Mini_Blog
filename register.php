@@ -10,7 +10,7 @@
 
 <body>
     <!-- <p style="color:green;">You must register first!!</p> -->
-<div class="d-flex justify-content-center mt-5">    
+<div class="d-flex justify-content-center mt-5">
     <form action="createuser.php" method="post">
         <div class="mb-3">
             <label class="form-label"  required>Name</label>
