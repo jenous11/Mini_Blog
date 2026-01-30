@@ -1,8 +1,10 @@
 <?php
+require_once 'vendor/autoload.php';
+use Dell\MiniBlogApp\Db;
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once 'includes/Db.php';
+// require_once 'includes/Db.php';
 class Verify extends Db
 {
     public function auth($uemail, $upassword)

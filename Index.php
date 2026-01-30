@@ -1,6 +1,7 @@
 <?php
 // session_start();
-require_once 'includes/Db.php';
+require_once 'vendor/autoload.php';
+use Dell\MiniBlogApp\Db;
 // require 'auth_guard.php';
 class Index extends Db
 {

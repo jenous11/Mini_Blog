@@ -4,16 +4,35 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6e603a36182386adfa34a4f7e9af87a7
+class ComposerStaticInite28e01601b3ddd6d09320b0da32ba62a
 {
+    public static $prefixLengthsPsr4 = array (
+        'D' =>
+        array (
+            'Dell\\MiniBlogApp\\' => 17,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Dell\\MiniBlogApp\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dell\\MiniBlogApp\\Db' => __DIR__ . '/../..' . '/src/Db.php',
+        'Dell\\MiniBlogApp\\Post' => __DIR__ . '/../..' . '/src/Post.php',
+        'Dell\\MiniBlogApp\\User' => __DIR__ . '/../..' . '/src/User.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit6e603a36182386adfa34a4f7e9af87a7::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite28e01601b3ddd6d09320b0da32ba62a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite28e01601b3ddd6d09320b0da32ba62a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite28e01601b3ddd6d09320b0da32ba62a::$classMap;
 
         }, null, ClassLoader::class);
     }

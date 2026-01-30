@@ -1,5 +1,8 @@
 <?php
-require_once "Db.php";
+namespace Dell\MiniBlogApp;
+use PDO;
+use PDOException;
+// require_once "Db.php";
 // require_once 'auth_guard.php';
 class Post extends DB
 {

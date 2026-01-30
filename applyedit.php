@@ -1,4 +1,6 @@
 <?php
+// require 'vendor/autoload.php';
+use Dell\MiniBlogApp\Post;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require 'includes/Post.php';
     $ptitle = $_POST["title"];

@@ -1,4 +1,7 @@
 <?php
+namespace Dell\MiniBlogApp;
+use PDO;
+use PDOException;
 class Db
 {
     private $servername = "localhost";

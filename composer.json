@@ -1,5 +1,10 @@
 {
-    "name": "jenous11/mini-blog-app",
+    "name": "dell/mini-blog-app",
+    "autoload": {
+        "psr-4": {
+            "Dell\\MiniBlogApp\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "jenous11",

@@ -7,4 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Dell\\MiniBlogApp\\Db' => $baseDir . '/src/Db.php',
+    'Dell\\MiniBlogApp\\Post' => $baseDir . '/src/Post.php',
+    'Dell\\MiniBlogApp\\User' => $baseDir . '/src/User.php',
 );

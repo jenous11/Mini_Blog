@@ -1,4 +1,5 @@
 <?php
+use Dell\MiniBlogApp\Post;
 session_start();
 // require_once 'auth_guard.php';
 require 'includes/Post.php';
