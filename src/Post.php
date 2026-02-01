@@ -1,9 +1,6 @@
 <?php
 namespace Dell\MiniBlogApp;
-use PDO;
 use PDOException;
-// require_once "Db.php";
-// require_once 'auth_guard.php';
 class Post extends DB
 {
     public function createpost($title, $content)
@@ -14,11 +11,9 @@ class Post extends DB
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':title', $title);
             $stmt->bindValue(':content', $content);
-            // $stmt->bindValue(':user_id', $user_id);
             $stmt->execute();
             $stmt = null;
             $pdo = null;
-            // return last_Id();
             header("location: Index.php");
         } catch (PDOException $e) {
             echo "error : " . $e->getMessage();

@@ -10,7 +10,7 @@ class User extends Db
     public function createuser($name, $email, $password)
     {
         try {
-            require_once 'includes/Db.php';
+            // require_once 'includes/Db.php';
             $pdo = $this->connect();
             $sql = "INSERT INTO users(name,email,password) VALUES (:name,:email,:password)";
             $stmt = $pdo->prepare($sql);

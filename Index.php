@@ -1,8 +1,8 @@
 <?php
-// session_start();
-require_once 'vendor/autoload.php';
+require __DIR__ .'/vendor/autoload.php';
 use Dell\MiniBlogApp\Db;
-// require 'auth_guard.php';
+use Dell\MiniBlogApp\Post;
+require_once 'auth.php';
 class Index extends Db
 {
   public function show()
@@ -26,10 +26,7 @@ class Index extends Db
         }
       else{
         foreach ($result as $rows) {
-          // foreach($result2 as $users){
-          //   if($rows["user_id"] === $users["id"])
-          //   echo "<b>author: </b>".$users["name"]."<br>";
-          // }
+          echo "<br>  <b>Welcome user :</b> ".$_SESSION["name"]. "</br>";
           echo "<b>title: </b>" . $rows["title"]
             . "<br>";
           echo "<b>content: </b>" . $rows["content"]

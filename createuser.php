@@ -1,7 +1,7 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 use Dell\MiniBlogApp\User;
 session_start();
-require "includes/User.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $name = $_POST["name"];
