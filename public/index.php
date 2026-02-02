@@ -52,3 +52,5 @@ if (isset($_SESSION["id"])) {
   $show = new Index();
   $show->show();
 }
+?>
+
