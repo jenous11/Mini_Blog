@@ -1,4 +1,10 @@
-<?php include '../includes/header.php'; ?>
+<?php
+namespace Dell\MiniBlogApp;
+use Dell\MiniBlogApp\Db;
+use Dell\MiniBlogApp\Post;
+ include '../includes/header.php';
+
+?>
 <!--posts -->
   <section id="posts">
     <h1 class="text-center mt-5 mb-5">Posts</h1>

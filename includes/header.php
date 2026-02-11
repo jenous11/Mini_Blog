@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,22 +11,40 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg py-3 mx-5">
+  <nav class="navbar navbar-expand-lg py-3 mx-5 " id="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand ms-3" href="#">Mini Blog</a>
+      <a class="navbar-brand ms-2" href="#">Mini Blog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item mx-3 me-2">
-            <a class="nav-link active " aria-current="page" href="../login.php">Sign in</a>
+        <ul class="navbar-nav mb-2 mb-lg-0 ">
+          <li class="nav-item mx-2 ms-5">
+            <a class="nav-link active  " aria-current="page" href="/Mini-Blog-app/public/Index.php">Home</a>
           </li>
-          <li class="nav-item me-5">
-            <a class="nav-link bg-black text-white rounded px-5 py-2 text-bold" href="../register.php">register</a>
+          <li class="nav-item  mx-2">
+            <a class="nav-link active " aria-current="page" href="#posts">Blog</a>
+          </li>
+          <li class="nav-item  mx-2">
+            <a class="nav-link active " aria-current="page" href="">Category</a>
+          </li>
+          <li class="nav-item   mx-2  ">
+            <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/register.php">Register</a>
+          </li>
+          <li class="nav-item  ">
+            <?php if (isset($_SESSION["id"])): ?>
+            <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php">Create blog</a>
+            <?php endif; ?>
           </li>
         </ul>
+            <form class="d-flex ms-auto my-2" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
       </div>
     </div>
   </nav>
@@ -33,14 +52,19 @@
   <div id="carouselExampleSlidesOnly" class="carousel slide w-100 " data-bs-ride="carousel">
     <div class="carousel-inner container-fluid">
       <div class="carousel-item active ">
-        <img src="/mini-blog-app/assets/images/img1.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
+        <img src="/Mini-Blog-app/assets/images/img1.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="/mini-blog-app/assets/images/img2.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
+        <img src="/Mini-Blog-app/assets/images/img2.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="/mini-blog-app/assets/images/img3.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
+        <img src="/Mini-Blog-app/assets/images/img3.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/Mini-Blog-app/assets/images/naruto.webp" class="d-block rounded-5 w-100" style="height:650px; object-fit: co;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/Mini-Blog-app/assets/images/ramen.webp" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
       </div>
     </div>
-
   </div>

@@ -1,12 +1,11 @@
 <?php
 namespace Dell\MiniBlogApp;
+require __DIR__ . "/../vendor/autoload.php";
 use PDO;
 use PDOException;
 // require_once 'includes/Db.php';
-
 class User extends Db
 {
-
     public function createuser($name, $email, $password)
     {
         try {

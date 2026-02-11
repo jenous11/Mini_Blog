@@ -1,35 +1,26 @@
  <?php
-require_once 'auth_guard.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="store.php" method="post">
-        title:
-        <input type="text" name="title"  required >
-        <br>
-        <br>
-        content:
-
-        <input type="text" name="content"  required>
-        <br>
-        <button type="submit">
-            Post
-        </button>
-
-        <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-    </form>
-</body>
-</html>
+  // require_once 'auth_guard.php';
+  session_start();
+  ?>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+ </head>
+ <body>
+   <form action="/Mini-Blog-app/actions/store.php" method="post" enctype="multipart/form-data">
+     title:
+     <input type="text" name="title" required>
+     <br>
+     content:
+     <input type="text" name="content" required>
+     <br>
+     relevent image:
+     <input type="file" name="image">
+     <br>
+     <input type="submit">
+   </form>
+ </body>
+ </html>
