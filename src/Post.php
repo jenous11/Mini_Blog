@@ -2,7 +2,7 @@
 namespace Dell\MiniBlogApp;
 require __DIR__ . "/../vendor/autoload.php";
 use PDOException;
-class Post extends DB
+class Post extends Db
 {
     public function createpost($title, $content,$user_id,$image)
     {

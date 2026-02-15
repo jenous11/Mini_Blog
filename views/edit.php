@@ -1,13 +1,10 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-use Dell\MiniBlogApp\Post;
-use Dell\MiniBlogApp\Db;
-
 session_start();
 // require_once 'auth_guard.php';
-
 $title = $_GET['title'];
 $content = $_GET['content'];
+$image=$_GET["image"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,19 +17,25 @@ $content = $_GET['content'];
 </head>
 
 <body>
-  <div class="container d-flex justify-content-center align-items-center mt-4 bg-red-200">
-    <form action="applyedit.php" method="post" class="m-5" enctype="multipart/form-data">
-      title:
-      <input type="text" name="title" value="<?php echo $title ?>" class="mb-3 p-3">
-      <br>
-      content:
-        <input type="textarea" name="content" value="<?php echo $content ?>" class="mb-3 p-3 w-100">
-      <br>
-      relevant image:
-      <input type="file" name="image">
-      <input type="submit">
-    </form>
-  </div>
+       <div class="d-flex justify-content-center mt-5">
+        <form class="mt-5" action="applyedit.php" method="post" enctype="multipart/form-data">
+         <div class="mb-3">
+                <label class="form-label" >Title</label>
+                <input type="text" class="form-control" name="title" value="<?php echo $title ?>" >
+            </div>
+            <div class="mb-3">
+                <label class="form-label" name="content">Content</label>
+                <input type="text" class="form-control" name="content" value="<?php echo $content ?>">
+                <!-- <div>We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+                <label class="form-label" name="image">Relevent Image</label>
+                <input type=""  name="image" value="<?php echo $image ?>">
+                <br>
+                <input type="file"  name="image" value="<?php echo $image ?>">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
 </body>
-
 </html>
