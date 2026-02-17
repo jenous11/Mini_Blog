@@ -12,7 +12,7 @@ class Index extends Db
   public function show()
   {
     $pdo = $this->connect();
-    $sql = "SELECT * FROM posts;";
+    $sql = "SELECT * FROM posts";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -27,11 +27,11 @@ if (isset($_SESSION["id"])) {
   <?php include "../includes/header.php"; ?>
 <!--posts -->
 <?php if (isset($_SESSION["id"])): ?>
-<section id="posts border ">
-  <h1 class="text-center mt-5 mb-5 ">Posts</h1>
-  <div class="container-fluid ">
-  <div class="row mb-2 boarder ">
-        <?php foreach ($result as $rows): ?>
+  <section id="posts border ">
+    <h1 class="text-center mt-5 mb-5 ">Posts</h1>
+    <div class="container-fluid ">
+      <div class="row mb-2 boarder ">
+    <?php foreach ($result as $rows): ?>
           <div class="col-md-6 d-flex">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative flex-fill">
               <div class="col p-4 d-flex flex-column position-static">
@@ -52,7 +52,7 @@ if (isset($_SESSION["id"])) {
                   ?>
                 </p>
                 <!-- edit -->
-<a class="btn btn-success  mt-2" href="/Mini-Blog-app/views/edit.php?title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"];?>">edit</a>
+<a class="btn btn-success  mt-2" href="/Mini-Blog-app/views/edit.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"];?>">edit</a>
                 <!-- delete -->
 <a class="btn btn-danger mt-2" href="/Mini-Blog-app/actions/delete.php?pid=<?php echo $rows["id"]; ?>">delete</a>
               </div>

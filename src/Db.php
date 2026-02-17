@@ -1,5 +1,4 @@
 <?php
-
 namespace Dell\MiniBlogApp;
 // $env = parse_ini_file(__DIR__ . "/../.env");
 use PDO;

@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
   // require 'includes/Post.php';
   $ptitle = $_POST["title"];
   $pcontent = $_POST["content"];
+  $id=$_POST["id"];
   //handiling the logic for image
   $files = $_FILES["image"]["name"];
   $tempname = $_FILES["image"]["tmp_name"];
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
   }
   if (isset($_SESSION["id"]))
     $edit = new Post();
-  $edit->editepost($ptitle, $pcontent, $files);
+  $edit->editepost($ptitle, $pcontent, $files, $id);
   header("Location: /Mini-Blog-app/public/Index.php");
   exit;
 }

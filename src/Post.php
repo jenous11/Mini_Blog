@@ -22,15 +22,16 @@ class Post extends Db
             echo "error : " . $e->getMessage();
         }
     }
-    public function editepost($title, $content,$image)
+    public function editepost($title, $content,$image,$id)
     {
         try {
             $pdo = $this->connect();
-            $sql = "UPDATE posts SET title= :title, content=:content, image=:image;";
+            $sql = "UPDATE posts SET title= :title, content=:content, image=:image WHERE id=:id;";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':title', $title);
             $stmt->bindValue(':content', $content);
             $stmt->bindValue(':image',$image);
+            $stmt->bindValue(':id',$id);
             $stmt->execute();
             $stmt = null;
             $pdo = null;
