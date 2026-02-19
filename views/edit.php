@@ -6,7 +6,7 @@ $id=$_GET['pid'];
 $title = $_GET['title'];
 $content = $_GET['content'];
 $image=$_GET["image"];
-print($image);
+// print($image);
 
 ?>
 <!DOCTYPE html>

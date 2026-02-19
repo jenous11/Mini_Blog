@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,24 +30,32 @@
             <a class="nav-link active " aria-current="page" href="">Category</a>
           </li>
           <li class="nav-item   mx-2  ">
+            <?php if(isset($_SESSION["id"])): ?>
             <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
+            <?php else: ?>
+              </li>
+            <?php endif; ?>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/register.php">Register</a>
+          </li> -->
+          <li class="nav-item">
+            <?php if (isset($_SESSION["id"])): ?>
+              <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php">Create blog</a>
+            <?php endif; ?>
           </li>
           <li class="nav-item">
             <?php if (isset($_SESSION["id"])): ?>
-            <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php">Create blog</a>
-            <?php echo "Logged In"?>
-                        <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/register.php">Register</a>
-
+              <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php"></a>
             <?php endif; ?>
-          </li>
+
         </ul>
-            <form class="d-flex ms-auto my-2" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
+
+        <form class="d-flex ms-auto my-2" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
       </div>
     </div>
   </nav>

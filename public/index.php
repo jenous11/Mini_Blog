@@ -1,37 +1,37 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-// $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-// $dotenv->load();
-// require_once '../includes/header.php';
 use Dell\MiniBlogApp\Db;
-// use PDO;
-//require_once 'auth.php'
 session_start();
+
 class Index extends Db
 {
   public function show()
   {
     $pdo = $this->connect();
-    $sql = "SELECT * FROM posts";
+    $sql = "SELECT u.roles, p.id, u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id";
+    // $sql = "SELECT name,content f";
     $stmt = $pdo->prepare($sql);
+    // $stmt->bindValue(':email',$email);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+  }
 }
 
 if (isset($_SESSION["id"])) {
   $show = new Index();
-  $result = $show->show();
-  }
-  ?>
-  <?php include "../includes/header.php"; ?>
+  // $email=$_POST["email"];
+  $result  = $show->show();
+}
+?>
+
+<?php include "../includes/header.php"; ?>
 <!--posts -->
 <?php if (isset($_SESSION["id"])): ?>
-  <section id="posts border ">
+  <section id="posts">
     <h1 class="text-center mt-5 mb-5 ">Posts</h1>
     <div class="container-fluid ">
       <div class="row mb-2 boarder ">
-    <?php foreach ($result as $rows): ?>
+        <?php foreach ($result as $rows): ?>
           <div class="col-md-6 d-flex">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative flex-fill">
               <div class="col p-4 d-flex flex-column position-static">
@@ -40,7 +40,7 @@ if (isset($_SESSION["id"])) {
                 </strong>
                 <h3 class="mb-0">
                   <p>author:
-                  <?php echo  htmlspecialchars($_SESSION["name"]); ?>
+                    <?php echo  htmlspecialchars($rows["name"]); ?>
                   </p>
                 </h3>
                 <div class="mb-1 text-body-secondary">
@@ -51,25 +51,28 @@ if (isset($_SESSION["id"])) {
                   echo htmlspecialchars($rows["content"]);
                   ?>
                 </p>
+                <!-- we need to fix this -->
+                <?php if ($rows["roles"]==="admin" ): ?>
                 <!-- edit -->
-<a class="btn btn-success  mt-2" href="/Mini-Blog-app/views/edit.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"];?>">edit</a>
+                <a class="btn btn-success  mt-2" href="/Mini-Blog-app/views/edit.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"]; ?>">edit</a>
                 <!-- delete -->
-<a class="btn btn-danger mt-2" href="/Mini-Blog-app/actions/delete.php?pid=<?php echo $rows["id"]; ?>">delete</a>
+                <a class="btn btn-danger mt-2" href="/Mini-Blog-app/actions/delete.php?pid=<?php echo $rows["id"]; ?>">delete</a>
+                <?php endif; ?>
               </div>
               <div class="col-auto d-none d-lg-block">
-              <img class="post-image img-fluid" src="/Mini-blog-app/uploads/<?php echo $rows['image'] ?>" alt="test image">
-                  <title>Placeholder</title>
+                <img class="post-image img-fluid" src="/Mini-blog-app/uploads/<?php echo $rows['image'] ?>" alt="test image">
+                <title>Placeholder</title>
               </div>
             </div>
           </div>
-          <?php endforeach; ?>
+        <?php endforeach; ?>
       </div>
     </div>
-<?php else: ?>
-  <script>
-    window.location.href = "/Mini-Blog-app/auth/login.php";
-  </script>
-<?php endif; ?>
-</section>
-<!-- footer -->
-<?php include '../includes/footer.php'; ?>
+  <?php else: ?>
+    <script>
+      window.location.href = "/Mini-Blog-app/auth/login.php";
+    </script>
+  <?php endif; ?>
+  </section>
+  <!-- footer -->
+  <?php include '../includes/footer.php'; ?>

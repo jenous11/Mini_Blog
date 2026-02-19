@@ -5,4 +5,5 @@ require_once 'auth_guard.php';
 unset($_SESSION["id"]);
 unset($_SESSION["name"]);
 session_destroy();
-header("Location: login.php");
+// header("Location: login.php");
+exit;

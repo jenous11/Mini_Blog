@@ -28,9 +28,8 @@ class Verify extends Db
                 header("Location: /Mini-Blog-app/public/Index.php");
                 exit;
             }else {
-            // wrong password - redirect back to login with error
+            // wrong password == redirect back to login with error
             header("Location: login.php?error=invalid_credentials");
-            echo"bigryo";
             exit;
         }
         } catch (PDOException $e) {
