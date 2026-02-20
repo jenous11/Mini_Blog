@@ -23,8 +23,9 @@ class Verify extends Db
               }
               if (password_verify($upassword, $users["password"])) {
               // if password matches then create the session
-              $_SESSION["id"] = $users["id"];
-              $_SESSION["name"] = $users["name"];
+                $_SESSION["id"] = $users["id"];
+                echo($_SESSION["id"]);
+                echo($users["id"]);
                 header("Location: /Mini-Blog-app/public/Index.php");
                 exit;
             }else {

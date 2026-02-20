@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
+
 use Dell\MiniBlogApp\Db;
+
 session_start();
 
 class Index extends Db
@@ -8,7 +10,8 @@ class Index extends Db
   public function show()
   {
     $pdo = $this->connect();
-    $sql = "SELECT u.roles, p.id, u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id";
+    $sql = "SELECT u.roles,user_id, p.id, u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id";
+
     // $sql = "SELECT name,content f";
     $stmt = $pdo->prepare($sql);
     // $stmt->bindValue(':email',$email);
@@ -38,11 +41,11 @@ if (isset($_SESSION["id"])) {
                 <strong class="d-inline-block mb-2 text-primary-emphasis">
                   <?php echo htmlspecialchars($rows["title"]); ?>
                 </strong>
-                <h3 class="mb-0">
-                  <p>author:
+                <h4 class="mb-0">
+                  <h4>author:
                     <?php echo  htmlspecialchars($rows["name"]); ?>
-                  </p>
-                </h3>
+                  </h4>
+                </h4>
                 <div class="mb-1 text-body-secondary">
                   <?php echo date('M d', strtotime($rows["created_at"])); ?>
                 </div>
@@ -51,13 +54,14 @@ if (isset($_SESSION["id"])) {
                   echo htmlspecialchars($rows["content"]);
                   ?>
                 </p>
-                <!-- we need to fix this -->
-                <?php if ($rows["roles"]==="admin" ): ?>
-                <!-- edit -->
-                <a class="btn btn-success  mt-2" href="/Mini-Blog-app/views/edit.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"]; ?>">edit</a>
-                <!-- delete -->
-                <a class="btn btn-danger mt-2" href="/Mini-Blog-app/actions/delete.php?pid=<?php echo $rows["id"]; ?>">delete</a>
-                <?php endif; ?>
+                <a class='' href="/Mini-Blog-app/views/read.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"]; ?>">read more </a>
+                <!-- we need to check both the session id and the real id of the user who is logged in currently-->
+                <?php if ($_SESSION["id"]==$rows['user_id']): ?>
+                  <!-- edit -->
+                  <a class="btn btn-success  mt-2" href="/Mini-Blog-app/views/edit.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"]; ?>">edit</a>
+                  <!-- delete -->
+                  <a class="btn btn-danger mt-2" href="/Mini-Blog-app/actions/delete.php?pid=<?php echo $rows["id"]; ?>">delete</a>
+                  <?php endif; ?>
               </div>
               <div class="col-auto d-none d-lg-block">
                 <img class="post-image img-fluid" src="/Mini-blog-app/uploads/<?php echo $rows['image'] ?>" alt="test image">

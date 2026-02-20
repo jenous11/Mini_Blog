@@ -2,6 +2,7 @@
 namespace Dell\MiniBlogApp;
 require __DIR__ . "/../vendor/autoload.php";
 use PDOException;
+use PDO;
 class Post extends Db
 {
     public function createpost($title, $content,$user_id,$image)
@@ -49,6 +50,21 @@ class Post extends Db
             $stmt->execute();
             $stmt = null;
             // $stmt2= null;
+            $pdo = null;
+        } catch (PDOException $e) {
+            echo "error : " . $e->getMessage();
+        }
+    }
+
+    public function readpost($id){
+      try{
+        $pdo=$this->connect();
+        $sql="SELECT *FROM posts WHERE id=:id; inner";
+        $stmt=$pdo->prepare($sql);
+         $stmt->bindValue(":id",$id);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt = null;
             $pdo = null;
         } catch (PDOException $e) {
             echo "error : " . $e->getMessage();

@@ -30,12 +30,9 @@
             <a class="nav-link active " aria-current="page" href="">Category</a>
           </li>
           <li class="nav-item   mx-2  ">
-            <?php if(isset($_SESSION["id"])): ?>
             <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
-            <?php else: ?>
               </li>
-            <?php endif; ?>
-          </li>
+          <!-- </li> -->
           <!-- <li class="nav-item">
             <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/register.php">Register</a>
           </li> -->
@@ -48,6 +45,12 @@
             <?php if (isset($_SESSION["id"])): ?>
               <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php"></a>
             <?php endif; ?>
+            </li>
+          <li class="nav-item">
+            <?php if (isset($_SESSION["id"])): ?>
+              <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/logout.php">logout</a>
+            <?php endif; ?>
+            </li>
 
         </ul>
 
