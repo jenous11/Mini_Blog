@@ -1,8 +1,10 @@
 <?php
-require_once 'auth_guard.php';
+// require_once 'auth_guard.php';
 
-// session_start();
+session_start();
+// echo ($_SESSION['status']);
+$_SESSION['status']='inactive';
+// session_destroy();
 unset($_SESSION["id"]);
-session_destroy();
-// header("Location: login.php");
-exit;
+header("location:login.php");
+// exit;

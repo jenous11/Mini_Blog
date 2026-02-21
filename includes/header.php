@@ -56,7 +56,7 @@
 
 
         <form class="d-flex ms-auto my-2" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
@@ -66,7 +66,7 @@
   <div id="carouselExampleSlidesOnly" class="carousel slide w-100 " data-bs-ride="carousel">
     <div class="carousel-inner container-fluid">
       <div class="carousel-item active ">
-        <img src="/Mini-Blog-app/assets/images/img1.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
+        <img src="/Mini-Blog-app/assets/images/img1.png" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
       </div>
       <div class="carousel-item">
         <img src="/Mini-Blog-app/assets/images/img2.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
@@ -75,10 +75,7 @@
         <img src="/Mini-Blog-app/assets/images/img3.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="/Mini-Blog-app/assets/images/naruto.webp" class="d-block rounded-5 w-100" style="height:650px; object-fit: co;" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/Mini-Blog-app/assets/images/ramen.webp" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
+        <img src="/Mini-Blog-app/assets/images/357.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: co;" alt="...">
       </div>
     </div>
   </div>

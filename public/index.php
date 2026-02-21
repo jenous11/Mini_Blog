@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-
 use Dell\MiniBlogApp\Db;
 
 session_start();
@@ -26,6 +25,9 @@ if (isset($_SESSION["id"])) {
   $result  = $show->show();
 }
 ?>
+
+
+<?php if($_SESSION['status']=='Active'): ?>
 
 <?php include "../includes/header.php"; ?>
 <!--posts -->
@@ -80,3 +82,10 @@ if (isset($_SESSION["id"])) {
   </section>
   <!-- footer -->
   <?php include '../includes/footer.php'; ?>
+<?php
+else:
+  header("Location: /Mini-Blog-app/auth/login.php ");
+  exit;
+endif;
+?>
+

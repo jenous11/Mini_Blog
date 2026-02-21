@@ -17,12 +17,12 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" name="email">Email address</label>
-                <input type="email" class="form-control" name="email" >
+                <input type="email" class="form-control" name="email" required >
                 <!-- <div>We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mb-3">
                 <label class="form-label" name="password">Password</label>
-                <input type="password" class="form-control" name="password" >
+                <input type="password" class="form-control" name="password" required >
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="register.php">register</a>
