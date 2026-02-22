@@ -2,12 +2,14 @@
 require __DIR__ . '/../vendor/autoload.php';
 use Dell\MiniBlogApp\Db;
 
+
 session_start();
 
 class Index extends Db
 {
   public function show()
   {
+    try{
     $pdo = $this->connect();
     $sql = "SELECT u.roles,user_id, p.id, u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id";
 
@@ -16,6 +18,9 @@ class Index extends Db
     // $stmt->bindValue(':email',$email);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }catch(Exception $e){
+      echo "error: ".$e->getMessage();
+    }
   }
 }
 

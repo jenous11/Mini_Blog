@@ -1,5 +1,9 @@
+<?php
+use Dell\MiniBlogApp\Category;
+ ?>
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,16 +30,26 @@
           <li class="nav-item  mx-2">
             <a class="nav-link active " aria-current="page" href="#posts">Blog</a>
           </li>
-          <li class="nav-item  mx-2">
-            <a class="nav-link active " aria-current="page" href="">Category</a>
+          <!-- category -->
+
+          <li class=" nav-item mx-2 dropdown mt-2 ">
+            <a class="text-decoration-none text-black" type="button"  data-bs-toggle="dropdown">Category</a>
+              <ul class="dropdown-menu">
+                <?php
+                $cat=new Category();
+                $results=$cat->fetchcategory();
+                foreach ($results as $rows):?>
+              <li class="dropdown-item">
+                <?php  echo $rows['name']; endforeach;?>
+              </li>
+            </ul>
           </li>
+
+<!-- notcategory -->
           <li class="nav-item   mx-2  ">
             <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
-              </li>
-          <!-- </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/register.php">Register</a>
-          </li> -->
+          </li>
+
           <li class="nav-item">
             <?php if (isset($_SESSION["id"])): ?>
               <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php">Create blog</a>
@@ -45,13 +59,12 @@
             <?php if (isset($_SESSION["id"])): ?>
               <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php"></a>
             <?php endif; ?>
-            </li>
+          </li>
           <li class="nav-item">
             <?php if (isset($_SESSION["id"])): ?>
               <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/logout.php">logout</a>
             <?php endif; ?>
-            </li>
-
+          </li>
         </ul>
 
 
@@ -66,16 +79,13 @@
   <div id="carouselExampleSlidesOnly" class="carousel slide w-100 " data-bs-ride="carousel">
     <div class="carousel-inner container-fluid">
       <div class="carousel-item active ">
-        <img src="/Mini-Blog-app/assets/images/img1.png" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
+        <img src="/Mini-Blog-app/assets/images/img1.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
       </div>
       <div class="carousel-item">
         <img src="/Mini-Blog-app/assets/images/img2.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
       </div>
       <div class="carousel-item">
         <img src="/Mini-Blog-app/assets/images/img3.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: cover;" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/Mini-Blog-app/assets/images/357.jpg" class="d-block rounded-5 w-100" style="height:650px; object-fit: co;" alt="...">
       </div>
     </div>
   </div>
