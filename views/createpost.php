@@ -47,7 +47,20 @@
         <label class="form-label">Content</label>
         <input name="content" id="" class="form-control" placeholder="Write Something">
       </div>
-      <div class="mb-3">
+
+<!-- category -->
+<li class="list-unstyled">
+  <label class="text-decoration-none" for="category">Category</label>
+  <select name="category" >
+    <option value="1">Programming</option>
+    <option value="2">Discussions</option>
+    <option value="3">Anime</option>
+  </select>
+</li>
+
+
+<!-- image -->
+      <div class="mb-3 mt-3">
         <label class="form-label" name="image">Relevent Image</label>
         <br>
         <input type="file" name="image" value="<?php echo $image ?>">

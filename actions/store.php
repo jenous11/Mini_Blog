@@ -6,6 +6,7 @@ use Dell\MiniBlogApp\Post;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["id"])) {
   $utitle = $_POST["title"];
   $ucontent = $_POST["content"];
+  $categoryid=$_POST["category"];
   // image logic
 $files=$_FILES["image"]["name"];
 $tempname=$_FILES["image"]["tmp_name"];

@@ -2,9 +2,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 use Dell\MiniBlogApp\Db;
 
-
 session_start();
-
 class Index extends Db
 {
   public function show()
