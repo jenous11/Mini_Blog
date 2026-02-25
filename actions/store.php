@@ -6,7 +6,14 @@ use Dell\MiniBlogApp\Post;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["id"])) {
   $utitle = $_POST["title"];
   $ucontent = $_POST["content"];
-  $categoryid=$_POST["category"];
+  // $category_id=$_POST['category'];
+  $category_id = $_POST["category"];
+  // echo $category_id;
+if (empty($category_id)) {
+ die('Category is required');
+}
+$category_id = (int)$category_id;
+
   // image logic
 $files=$_FILES["image"]["name"];
 $tempname=$_FILES["image"]["tmp_name"];
@@ -16,7 +23,7 @@ $path= __DIR__ .'/../uploads/'.$files;
   $obj = new Post();
   $user_id = $_SESSION["id"];
   $_SESSION["post_id"] = $_SESSION["id"];
-  $obj->createpost($utitle, $ucontent,$user_id,$files);
+  $obj->createpost($utitle, $ucontent,$user_id,$files,$category_id);
   if(move_uploaded_file($tempname, $path)){
   echo "<h2> file uploaded successfully</h2>";
   header("Location: /Mini-Blog-app/public/Index.php");

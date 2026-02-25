@@ -5,16 +5,17 @@ use PDOException;
 use PDO;
 class Post extends Db
 {
-    public function createpost($title, $content,$user_id,$image)
+    public function createpost($title, $content,$user_id,$image,$category_id)
     {
         try {
             $pdo = $this->connect();
-            $sql = "INSERT INTO posts(title, content,user_id,image) VALUES (:title,:content,:user_id,:image);";
+            $sql = "INSERT INTO posts(title, content,user_id,image,category_id) VALUES (:title,:content,:user_id,:image,:category_id);";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':title', $title);
             $stmt->bindValue(':content', $content);
             $stmt->bindValue(':user_id', $user_id);
             $stmt->bindValue(':image',$image);
+            $stmt->bindValue(':category_id',$category_id);
             $stmt->execute();
             $stmt = null;
             $pdo = null;

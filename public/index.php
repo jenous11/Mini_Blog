@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 use Dell\MiniBlogApp\Db;
-
+use Dell\MiniBlogApp\Category;
 session_start();
 class Index extends Db
 {
@@ -10,7 +10,6 @@ class Index extends Db
     try{
     $pdo = $this->connect();
     $sql = "SELECT u.roles,user_id, p.id, u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id";
-
     // $sql = "SELECT name,content f";
     $stmt = $pdo->prepare($sql);
     // $stmt->bindValue(':email',$email);
@@ -28,7 +27,6 @@ if (isset($_SESSION["id"])) {
   $result  = $show->show();
 }
 ?>
-
 
 <?php if($_SESSION['status']=='Active'): ?>
 

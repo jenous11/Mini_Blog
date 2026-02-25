@@ -1,6 +1,3 @@
-<?php
-use Dell\MiniBlogApp\Category;
- ?>
 <!doctype html>
 <html lang="en">
 
@@ -31,19 +28,26 @@ use Dell\MiniBlogApp\Category;
             <a class="nav-link active " aria-current="page" href="#posts">Blog</a>
           </li>
           <!-- category -->
-
-          <li class=" nav-item mx-2 dropdown mt-2 ">
+          <form action="">
+          <li class=" nav-item mx-2 dropdown mt-2 form-element ">
             <a class="text-decoration-none text-black" type="button"  data-bs-toggle="dropdown">Category</a>
               <ul class="dropdown-menu">
+
                 <?php
+                use Dell\MiniBlogApp\Category;
                 $cat=new Category();
                 $results=$cat->fetchcategory();
+
                 foreach ($results as $rows):?>
-              <li class="dropdown-item">
+              <li class="dropdown-item" id="<?php $rows['id']?> " >
                 <?php  echo $rows['name']; endforeach;?>
               </li>
             </ul>
           </li>
+          </form>
+<!-- trna create a new category -->
+
+
 
 <!-- notcategory -->
           <li class="nav-item   mx-2  ">
