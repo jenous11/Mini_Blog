@@ -27,29 +27,29 @@
           <li class="nav-item  mx-2">
             <a class="nav-link active " aria-current="page" href="#posts">Blog</a>
           </li>
+
+
           <!-- category -->
-          <form action="">
-          <li class=" nav-item mx-2 dropdown mt-2 form-element ">
-            <a class="text-decoration-none text-black" type="button"  data-bs-toggle="dropdown">Category</a>
-              <ul class="dropdown-menu">
 
-                <?php
+<!-- category -->
+<div class="dropdown">
+  <button class="btn btn-link text-decoration-none text-black"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+ Category
+  </button>
+  <ul class="dropdown-menu">
+          <?php
                 use Dell\MiniBlogApp\Category;
-                $cat=new Category();
-                $results=$cat->fetchcategory();
-
-                foreach ($results as $rows):?>
-              <li class="dropdown-item" id="<?php $rows['id']?> " >
-                <?php  echo $rows['name']; endforeach;?>
-              </li>
-            </ul>
-          </li>
-          </form>
-<!-- trna create a new category -->
+                $cat1 = new Category();
+                $results = $cat1->fetchcategory();
+                foreach ($results as $rows):
+                ?>
+    <li><a class="dropdown-item" href="/Mini-Blog-app/public/Index.php?category_id=<?php echo urlencode($rows["id"]);?>" ><?php echo  $rows['name'];?> </a></li>
+       <?php endforeach; ?>
+  </ul>
+</div>
 
 
-
-<!-- notcategory -->
+          <!-- notcategory -->
           <li class="nav-item   mx-2  ">
             <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
           </li>

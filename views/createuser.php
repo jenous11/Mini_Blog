@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name = $_POST["name"];
   $email = $_POST["email"];
   $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-  $user = new USER();
+  $user = new User();
   $id = $user->createuser($name, $email, $password, $user_id);
   $_SESSION["id"] = $id;
   $user_id = $_SESSION["id"];
