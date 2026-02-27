@@ -27,8 +27,6 @@
           <li class="nav-item  mx-2">
             <a class="nav-link active " aria-current="page" href="#posts">Blog</a>
           </li>
-
-
           <!-- category -->
 
 <!-- category -->
@@ -48,12 +46,10 @@
   </ul>
 </div>
 
-
           <!-- notcategory -->
           <li class="nav-item   mx-2  ">
             <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
           </li>
-
           <li class="nav-item">
             <?php if (isset($_SESSION["id"])): ?>
               <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/views/createpost.php">Create blog</a>
@@ -70,15 +66,14 @@
             <?php endif; ?>
           </li>
         </ul>
-
-
-        <form class="d-flex ms-auto my-2" role="search">
+        <form class="d-flex ms-auto my-2" role="search" action="/Mini-Blog-app/public/Index.php" method="post">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>
   </nav>
+
   <!-- carousel -->
   <div id="carouselExampleSlidesOnly" class="carousel slide w-100 " data-bs-ride="carousel">
     <div class="carousel-inner container-fluid">
