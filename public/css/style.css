@@ -16,6 +16,3 @@ footer {
     margin-top: auto;
 }
 
-.bg-blue-200 {
-  background-color: rgba(var(--bs-primary-rgb), 0.2);
-}
