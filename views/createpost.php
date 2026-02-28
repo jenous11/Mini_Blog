@@ -14,7 +14,7 @@
 </head>
 <body>
 
-  <div class="container my-5">
+  <div class="container my-5" >
     <header class="d-flex justify-content-between my-4">
       <h1>Create a Post</h1>
       <div>

@@ -7,25 +7,25 @@
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body >
         <!-- bootstrap -->
-        <div class="d-flex justify-content-center mt-5">
-        <form action="auth.php" method="post">
-         <div class="mb-3">
-                <label class="form-label" >Name</label>
-                <input type="text"  class="form-control" name="name" >
+        <div class="d-flex  align-items-center  justify-content-center  bg-purple-200"  >
+        <form action="auth.php" method="post" style="margin-top: 5rem; width:450px; height:39rem;" class=" border border-dark rounded-5  bg-light " >
+          <label for="Name of the app" class="form-item mb-5 align-items-center d-flex justify-content-center "><h3>Mini-Blog-app</h3></label>
+        <div class=" justify-content-center  d-flex ">
+                <label class="form-label"> <h3> Name</label>
+                <input type="text"  class="form-control mt-4  border border-dark " placeholder="Enter Name" style="width:20rem;" name="name" >
             </div>
-            <div class="mb-3">
-                <label class="form-label" name="email">Email address</label>
-                <input type="email" class="form-control" name="email" required >
-                <!-- <div>We'll never share your email with anyone else.</div> -->
+            <div class=" justify-content-center d-flex">
+                <label class="form-label"  name="email"><h3>Email</label>
+                <input type="email" class="form-control mt-4  border border-dark" style="width:20rem;"  placeholder="Enter Email"  name="email" required >
             </div>
-            <div class="mb-3">
-                <label class="form-label" name="password">Password</label>
-                <input type="password" class="form-control" name="password" required >
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="register.php">register</a>
+            <div class=" justify-content-center d-flex">
+                <label class="form-label" name="password"><h3>Password</label>
+                <input type="password" class="form-control mt-2 mb-3 border border-dark" style="width:20rem;"  name="password"  placeholder="Enter Password"  required >
+              </div>
+              <button type="submit" class="btn btn-primary mb-2" style="margin-left:2rem;"><h3>Submit</button>
+              <a href="register.php" class="mb-5"  style="margin-left:2rem;"><h3>register</a>
         </form>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

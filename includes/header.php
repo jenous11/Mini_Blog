@@ -12,9 +12,9 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg py-3 mx-5 " id="navbar">
+  <nav class="navbar navbar-expand-lg py-2  fixed-top bg-white " id="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand ms-2" href="#">Mini Blog</a>
+      <a class="navbar-brand ms-5 mx-5" href="#">Mini Blog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -66,7 +66,7 @@
             <?php endif; ?>
           </li>
         </ul>
-        <form class="d-flex ms-auto my-2" role="search" action="/Mini-Blog-app/public/Index.php" method="post">
+        <form class="d-flex ms-auto my-2 me-5 " role="search" action="/Mini-Blog-app/public/Index.php" method="post">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>

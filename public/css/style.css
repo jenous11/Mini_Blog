@@ -1,5 +1,21 @@
 .post-image {
     width: 300px;
     height: 300px;
-    object-fit: cover;   
+    object-fit: cover;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.bg-blue-200 {
+  background-color: rgba(var(--bs-primary-rgb), 0.2);
 }

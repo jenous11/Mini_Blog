@@ -111,9 +111,9 @@ else{
                   <!-- we need to check both the session id and the real id of the user who is logged in currently-->
                   <?php if ($_SESSION["id"] == $rows['user_id']): ?>
                     <!-- edit -->
-                    <a class="btn btn-success  mt-2" href="/Mini-Blog-app/views/edit.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"]; ?>">edit</a>
+                    <a class="btn btn-success  mt-2"   style="width:12rem ;"    href="/Mini-Blog-app/views/edit.php?&title=<?php echo urlencode($rows["title"]); ?>&content=<?php echo urlencode($rows["content"]); ?>&pid=<?php echo $rows["id"]; ?>&image=<?php echo $rows["image"]; ?>">edit</a>
                     <!-- delete -->
-                    <a class="btn btn-danger mt-2" href="/Mini-Blog-app/actions/delete.php?pid=<?php echo $rows["id"]; ?>">delete</a>
+                    <a class="btn btn-danger mt-2"  style="width:12rem ;" href="/Mini-Blog-app/actions/delete.php?pid=<?php echo $rows["id"]; ?>">delete</a>
                   <?php endif; ?>
                 </div>
                 <div class="col-auto d-none d-lg-block">
