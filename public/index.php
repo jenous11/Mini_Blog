@@ -40,8 +40,7 @@ public function Search($search)
 {
     try {
         $pdo = $this->connect();
-        $sql = "SELECT * FROM posts WHERE title LIKE :search OR content LIKE :search";
-          $sql="SELECT u.roles,user_id,p.id,u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id and category_id=:category_id";
+        $sql="SELECT u.roles,user_id,p.id,u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id WHERE title LIKE :search OR content LIKE :search";
         $stmt = $pdo->prepare($sql);
 
         // Add wildcards before binding
