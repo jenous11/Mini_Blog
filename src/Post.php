@@ -57,12 +57,12 @@ class Post extends Db
         }
     }
 
-    public function readpost($id){
+    public function readpost(){
       try{
         $pdo=$this->connect();
-        $sql="SELECT *FROM posts WHERE id=:id; inner";
+        $sql="SELECT *FROM post ";
         $stmt=$pdo->prepare($sql);
-         $stmt->bindValue(":id",$id);
+        //  $stmt->bindValue(":id",$id);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt = null;

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
+  <title>Header</title>
   <link rel="stylesheet" href="/Mini-Blog-app/public/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -45,7 +45,6 @@
        <?php endforeach; ?>
   </ul>
 </div>
-
           <!-- notcategory -->
           <li class="nav-item   mx-2  ">
             <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
@@ -65,11 +64,29 @@
               <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/auth/logout.php">logout</a>
             <?php endif; ?>
           </li>
+
+          <li>
+            <?php
+                use Dell\MiniBlogApp\User;
+                $postinheader = new User();
+                $results = $postinheader->showusers();
+                foreach ($results as $rows):
+                  ?>
+            <?php if($_SESSION["id"]==$rows["id"] && $rows["roles"]=="admin" ): ?>
+              <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/admin/dashboard.php">admin panel</a>
+            <?php
+            endif;
+          endforeach;
+          ?>
+
+          </li>
         </ul>
+
         <form class="d-flex ms-auto my-2 me-5 " role="search" action="/Mini-Blog-app/public/Index.php" method="post">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+
       </div>
     </div>
   </nav>
