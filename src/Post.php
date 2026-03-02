@@ -60,15 +60,32 @@ class Post extends Db
     public function readpost(){
       try{
         $pdo=$this->connect();
-        $sql="SELECT *FROM post ";
+        $sql="SELECT *FROM posts ";
         $stmt=$pdo->prepare($sql);
         //  $stmt->bindValue(":id",$id);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $results= $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
             $stmt = null;
             $pdo = null;
         } catch (PDOException $e) {
             echo "error : " . $e->getMessage();
         }
     }
+
+  public function showadmin()
+  {
+    try {
+      $pdo = $this->connect();
+      $sql = "select  p.id, p.title, c.category_name, p.created_at, u.name from users u inner join posts p inner join category c on c.id=p.category_id;";
+      // $sql = "SELECT name,content f";
+      $stmt = $pdo->prepare($sql);
+      // $stmt->bindValue(':email',$email);
+      $stmt->execute();
+      $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $results;
+      } catch (PDOException $e) {
+      echo "error: " . $e->getMessage();
+    }
+  }
 }

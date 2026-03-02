@@ -1,6 +1,9 @@
 <?php
+namespace Dell\MiniBlogApp;
 require __DIR__ . '/../vendor/autoload.php';
 use Dell\MiniBlogApp\Db;
+use PDO;
+use Exception;
 // use Dell\MiniBlogApp\Category;
 session_start();
 class Index extends Db
