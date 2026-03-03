@@ -89,4 +89,20 @@ class Post extends Db
       echo "error: " . $e->getMessage();
     }
   }
+      public function editepostadmin($id)
+    {
+        try {
+            $pdo = $this->connect();
+            $sql = "SELECT * From posts  WHERE id=:id;";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+            $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+            // $stmt = null;
+            // $pdo = null;
+        } catch (PDOException $e) {
+            echo "error : " . $e->getMessage();
+        }
+    }
 }

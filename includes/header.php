@@ -41,7 +41,7 @@
                 $results = $cat1->fetchcategory();
                 foreach ($results as $rows):
                 ?>
-    <li><a class="dropdown-item" href="/Mini-Blog-app/public/Index.php?category_id=<?php echo urlencode($rows["id"]);?>" ><?php echo  $rows['name'];?> </a></li>
+    <li><a class="dropdown-item" href="/Mini-Blog-app/public/Index.php?category_id=<?php echo urlencode($rows["id"]);?>" ><?php echo  $rows['category_name'];?> </a></li>
        <?php endforeach; ?>
   </ul>
 </div>
@@ -73,7 +73,7 @@
                 foreach ($results as $rows):
                   ?>
             <?php if($_SESSION["id"]==$rows["id"] && $rows["roles"]=="admin" ): ?>
-              <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/admin/dashboard.php">admin panel</a>
+              <a class="nav-link text-black rounded  py-2 text-bold" href="/Mini-Blog-app/admin/dashboard_posts.php">admin panel</a>
             <?php
             endif;
           endforeach;
