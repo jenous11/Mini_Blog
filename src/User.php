@@ -39,4 +39,31 @@ class User extends Db
       "error: " . $e->getMessage();
     }
   }
+
+  public function edituser($name, $email, $password = null, $id)
+  {
+    try {
+      $pdo = $this->connect();
+      if ($password) {
+
+        $sql = "UPDATE  users SET name=:name,email=:email,password=:password WHERE id=:id ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return true;
+      } else
+        $sql = "UPDATE  users SET name=:name,email=:email WHERE  id=:id ";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindParam(':name', $name);
+      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':id', $id);
+      $stmt->execute();
+      return true;
+    } catch (PDOException $e) {
+      "error: " . $e->getMessage();
+    }
+  }
 }
