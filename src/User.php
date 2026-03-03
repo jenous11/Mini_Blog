@@ -66,4 +66,19 @@ class User extends Db
       "error: " . $e->getMessage();
     }
   }
+
+    public function deleteusers($id)
+  {
+    try {
+      $pdo = $this->connect();
+      $sql = "DELETE FROM users where id=:id";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindValue(':id',$id);
+      $stmt->execute();
+      return true;
+    } catch (PDOException $e) {
+      "error: " . $e->getMessage();
+    }
+  }
+
 }
