@@ -77,8 +77,9 @@ class Post extends Db
   {
     try {
       $pdo = $this->connect();
-      $sql = "select  p.id, p.title, c.category_name, p.created_at, u.name from users u inner join posts p inner join category c on c.id=p.category_id;";
-      // $sql = "SELECT name,content f";
+
+      $sql = "SELECT p.id, p.title, c.category_name, p.created_at, u.name FROM posts p INNER JOIN users u ON p.user_id = u.id INNER JOIN category c ON p.category_id = c.id;;";
+
       $stmt = $pdo->prepare($sql);
       // $stmt->bindValue(':email',$email);
       $stmt->execute();
