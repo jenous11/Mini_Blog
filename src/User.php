@@ -80,5 +80,22 @@ class User extends Db
       "error: " . $e->getMessage();
     }
   }
+ public function createuserbyadmin($name, $email, $password,$role)
+  {
+    try {
 
+      $pdo = $this->connect();
+      $sql = "INSERT INTO users(name,email,password,roles) VALUES (:name,:email,:password,:role)";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindParam(':name', $name);
+      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':password', $password);
+      $stmt->bindParam(':role', $role);
+      $stmt->execute();
+      $id = $pdo->lastInsertId();
+      return $id;
+    } catch (PDOException $e) {
+      "error: " . $e->getMessage();
+    }
+  }
 }
