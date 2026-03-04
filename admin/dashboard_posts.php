@@ -1,10 +1,13 @@
 <?php
+
 require __DIR__ . "/../vendor/autoload.php";
 use Dell\MiniBlogApp\Post;
 
 $adminPost = new Post();
 $posts = $adminPost->showadmin();
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

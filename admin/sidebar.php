@@ -15,6 +15,9 @@
       <a class="nav-link text-white <?= basename($_SERVER['PHP_SELF'])=='dashboard_users.php'?'active':'' ?>" href="dashboard_users.php">
         <i class="bi bi-person-fill"></i><span class="d-none d-sm-inline ms-2">Users</span>
       </a>
+      <a class="nav-link text-white " href="/Mini-blog-app/auth/logout.php">
+       <i class="bi bi-box-arrow-left"></i><span class="d-none d-sm-inline ms-2">Logout</span>
+      </a>
     </nav>
   </div>
 </div>

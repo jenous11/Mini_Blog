@@ -40,25 +40,42 @@ class User extends Db
     }
   }
 
-  public function edituser($name, $email, $password = null, $id)
+  public function showusersbyid($id)
+  {
+    try {
+      $pdo = $this->connect();
+      $sql = "SELECT FROM users WHERE id=:id ";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindParam(':id',$id);
+      $stmt->execute();
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $results;
+    } catch (PDOException $e) {
+      "error: " . $e->getMessage();
+    }
+  }
+
+  public function edituser($name, $email, $password = null,$role, $id)
   {
     try {
       $pdo = $this->connect();
       if ($password) {
 
-        $sql = "UPDATE  users SET name=:name,email=:email,password=:password WHERE id=:id ";
+        $sql = "UPDATE  users SET name=:name,email=:email,password=:password,roles=:roles WHERE id=:id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':roles', $role);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return true;
       } else
-        $sql = "UPDATE  users SET name=:name,email=:email WHERE  id=:id ";
+        $sql = "UPDATE  users SET name=:name,email=:email,roles=:roles  WHERE  id=:id;";
       $stmt = $pdo->prepare($sql);
       $stmt->bindParam(':name', $name);
       $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':roles', $role);
       $stmt->bindParam(':id', $id);
       $stmt->execute();
       return true;
@@ -80,6 +97,7 @@ class User extends Db
       "error: " . $e->getMessage();
     }
   }
+
  public function createuserbyadmin($name, $email, $password,$role)
   {
     try {

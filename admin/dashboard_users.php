@@ -4,6 +4,7 @@ use Dell\MiniBlogApp\User;
 
 $userObj = new User();
 $users = $userObj->showusers();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
