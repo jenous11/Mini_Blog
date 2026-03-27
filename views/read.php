@@ -22,20 +22,20 @@
         </header>
         <div class="book-details p-5 my-4">
             <?php
-             require __DIR__ . '/../vendor/autoload.php';
-             use Dell\MiniBlogApp\Post;
+          require __DIR__ . '/../vendor/autoload.php';
+            use Dell\MiniBlogApp\Post;
             $id = $_GET['pid'];
 
             if ($id) {
-             $read=new Post();
+            $read=new Post();
             $result=$read->readpost($id);
             foreach( $result as $row){
-                 ?>
-                 <h3>Title:</h3>
-                 <p><?php echo $row["title"]; ?></p>
-                 <h3>Content:</h3>
-                 <p><?php echo $row["content"]; ?></p>
-                 <?php
+                ?>
+                <h3>Title:</h3>
+                <p><?php echo $row["title"]; ?></p>
+                <h3>Content:</h3>
+                <p><?php echo $row["content"]; ?></p>
+                <?php
                 }
             }
             else{

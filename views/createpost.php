@@ -40,11 +40,11 @@
          <select name="category" id="category" class="form-control">
            <option value="">-- Select Category --</option>
         <?php
-        $cat2=new Category();
+      $cat2=new Category();
         $results=$cat2->fetchcategory();
         foreach($results as $rows):
         ?>
-          <option value="<?php echo $rows["id"];?>" > <?php echo $rows['name']; ?>  </option>
+          <option value="<?php echo $rows["id"];?>" > <?php echo $rows['category_name']; ?>  </option>
           <?php endforeach;?>
         </select>
        </div>
