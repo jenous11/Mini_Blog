@@ -25,7 +25,6 @@ class Verify extends Db
               // if password matches then create the session
                 $_SESSION["id"] = $users["id"];
                 $_SESSION['status']='Active';
-
                 header("Location: /Mini-Blog-app/public/Index.php");
                 exit;
             }else {

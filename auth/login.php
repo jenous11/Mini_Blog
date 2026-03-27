@@ -7,11 +7,11 @@
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body >
+<body >`
         <!-- bootstrap -->
         <div class="d-flex  align-items-center  justify-content-center  bg-purple-200"  >
         <form action="auth.php" method="post" style="margin-top: 5rem; width:450px; height:33rem;" class=" border border-dark rounded-5  bg-light mt-5 " >
-          <label for="Name of the app" class="form-item mb-5 align-items-center d-flex justify-content-center "><h4>Login</h4></label>
+        <label for="Name of the app" class="form-item mb-5 align-items-center d-flex justify-content-center "><h4>Login</h4></label>
         <div class=" justify-content-center  d-flex ">
                 <label class="form-label"> <h4> Name</label>
                 <input type="text"  class="form-control mt-4  border border-dark " placeholder="Enter Name" style="width:20rem;" name="name" >
