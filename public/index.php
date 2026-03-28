@@ -6,6 +6,7 @@ use PDO;
 use Exception;
 // use Dell\MiniBlogApp\Category;
 session_start();
+$_SESSION["category"]="unset";
 class Index extends Db
 {
   public function show()
@@ -32,6 +33,7 @@ class Index extends Db
       $stmt = $pdo->prepare($sql);
       $stmt->bindValue(':category_id', $category_id);
       $stmt->execute();
+      $_SESSION["category"]="set";
       $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
       return $result;
       } catch (Exception $e) {
@@ -39,13 +41,13 @@ class Index extends Db
     }
   }
 
+
 public function Search($search)
 {
     try {
         $pdo = $this->connect();
         $sql="SELECT u.roles,user_id,p.id,u.name,title,p.created_at,content,image from posts p inner join users u on p.user_id=u.id WHERE title LIKE :search OR content LIKE :search";
         $stmt = $pdo->prepare($sql);
-
         // Add wildcards before binding
         $search = '%' . $search . '%';
         $stmt->bindValue(':search', $search, PDO::PARAM_STR);
@@ -58,11 +60,10 @@ public function Search($search)
 }
 }
 
-
-
 if(isset($_GET['category_id'])){
 $category_id=$_GET['category_id'];
 $index=new Index();
+
 $result=$index->show2($category_id);
 }
 elseif($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -79,24 +80,23 @@ else{
 ?>
 
 <!-- checking if session status is active  -->
-
 <?php if ($_SESSION['status'] == 'Active'): ?>
 <?php include "../includes/header.php"; ?>
   <!--posts -->
   <?php if (isset($_SESSION["id"])):?>
     <section id="posts">
-      <h1 class="text-center mt-5 mb-5 ">Posts</h1>
+      <h1 class="text-center mt-5 mb-5 " >Posts</h1>
       <div class="container-fluid ">
         <div class="row mb-2 boarder ">
-          <?php foreach ($result as $rows): ?>
+          <?php foreach ($result as $rows):?>
             <div class="col-md-6 d-flex">
               <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative flex-fill">
                 <div class="col p-4 d-flex flex-column position-static">
                   <h2>
                   <strong class="d-inline-block mb-2 text-primary-emphasis">
                     <?php echo htmlspecialchars($rows["title"]); ?>
-                  </strong>
                   </h2>
+                </strong>
                   <h4 class="mb-0">
                     <h4>author:
                       <?php echo  htmlspecialchars($rows["name"]); ?>

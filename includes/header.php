@@ -12,7 +12,7 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg py-2  fixed-top bg-white " id="navbar">
+  <nav class="navbar navbar-expand-lg py-1  fixed-top bg-white " id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand ms-5 mx-5" href="#">Mini Blog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -27,12 +27,12 @@
           <li class="nav-item  mx-2">
             <a class="nav-link active " aria-current="page" href="#posts">Blog</a>
           </li>
-          <!-- category -->
+
 
 <!-- category -->
 <div class="dropdown">
   <button class="btn btn-link text-decoration-none text-black"  type="button" data-bs-toggle="dropdown" aria-expanded="false">
- Category
+  Category
   </button>
   <ul class="dropdown-menu">
           <?php
@@ -41,12 +41,14 @@
                 $results = $cat1->fetchcategory();
                 foreach ($results as $rows):
                 ?>
-    <li><a class="dropdown-item" href="/Mini-Blog-app/public/Index.php?category_id=<?php echo urlencode($rows["id"]);?>" ><?php echo  $rows['category_name'];?> </a></li>
-       <?php endforeach; ?>
+    <li>
+  <a class="dropdown-item" href="/Mini-Blog-app/public/Index.php?category_id=<?php echo urlencode($rows["id"]);?>" ><?php echo  $rows['category_name'];?> </a>
+    </li>
+        <?php endforeach; ?>
   </ul>
 </div>
           <!-- notcategory -->
-          <li class="nav-item   mx-2  ">
+          <li class="nav-item  mx-2">
             <a class="nav-link active " aria-current="page" href="/Mini-Blog-app/auth/login.php">Sign in</a>
           </li>
           <li class="nav-item">
@@ -78,20 +80,18 @@
             endif;
           endforeach;
           ?>
-
           </li>
         </ul>
-
         <form class="d-flex ms-auto my-2 me-5 " role="search" action="/Mini-Blog-app/public/Index.php" method="post">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-
       </div>
     </div>
   </nav>
 
   <!-- carousel -->
+  <?php if(($_SESSION["category"])=="unset"): ?>
   <div id="carouselExampleSlidesOnly" class="carousel slide w-100 " data-bs-ride="carousel">
     <div class="carousel-inner container-fluid">
       <div class="carousel-item active ">
@@ -105,3 +105,6 @@
       </div>
     </div>
   </div>
+<?php endif;?>
+</body>
+
