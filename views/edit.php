@@ -22,7 +22,7 @@ $image = $_GET["image"];
 <body>
   <div class="container my-5">
     <header class="d-flex justify-content-between my-4">
-      <h1>Add New Post</h1>
+      <h1>Edit Post</h1>
       <div>
         <a href="../public/Index.php" class="btn btn-primary">Back</a>
       </div>
