@@ -8,6 +8,8 @@ A simple PHP & MySQL based mini blogging application built using core PHP, OOP, 
 ![adminpanel](assets/images/adminpanel.png)
 ## Create Post Page
 ![createpost](assets/images/createpost.png)
+## Posts
+![posts](assets/images/posts.png)
 ## Login Page
 ![loginpage](assets/images/loginpage.png)
 
