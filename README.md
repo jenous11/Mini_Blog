@@ -10,6 +10,8 @@ A simple PHP & MySQL based mini blogging application built using core PHP, OOP, 
 ![createpost](assets/images/createpost.png)
 ## Posts
 ![posts](assets/images/posts.png)
+## Edit Post
+![editpost](assets/images/editpost.ong)
 ## Login Page
 ![loginpage](assets/images/loginpage.png)
 
